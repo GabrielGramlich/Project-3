@@ -4,3 +4,7 @@ def create_options():
 
 def display_options():
 	pass
+
+
+def display_message():
+	pass
