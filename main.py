@@ -1,5 +1,5 @@
 from ui import display_options, display_message
-from input_management import get_input
+from input_management import get_string
 from validation import menu_selection_exists
 from database_management import *
 
@@ -10,7 +10,7 @@ def main():
 
 	while True:
 		display_options()
-		selection = get_input('\nWhich option would you like? ')
+		selection = get_string('\nWhich option would you like? ')
 		if menu_selection_exists(selection):
 			if selection == 'exit':
 				break
