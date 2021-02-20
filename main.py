@@ -1,14 +1,18 @@
-from ui import display_options
+from ui import display_options, display_message
 from input_management import get_input
+from validation import menu_selection_exists
 
 def main():
 	while True:
 		display_options()
 		selection = get_input('\nWhich option would you like? ')
-		if selection == 'exit':
-			break
+		if menu_selection_exists(selection):
+			if selection == 'exit':
+				break
+			else:
+				pass
 		else:
-			pass
+			display_message('Not a valid choice. Please try again.')
 
 
 
