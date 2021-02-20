@@ -4,6 +4,10 @@ from validation import menu_selection_exists
 from database_management import *
 
 def main():
+	initialize_database()
+	initialize_artist_table()
+	intialize_artwork_table()
+
 	while True:
 		display_options()
 		selection = get_input('\nWhich option would you like? ')
