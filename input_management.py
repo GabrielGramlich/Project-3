@@ -5,7 +5,7 @@ def get_string(message):
 
 
 def get_bool(message,true,false):
-	selection = validate_bool(true,false,input(message).lower(),message)
+	selection = validate_bool(true,false,get_string(message).lower(),message)
 	if selection == true:
 		return True
 	else:
