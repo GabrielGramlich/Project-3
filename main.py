@@ -10,10 +10,13 @@ def main():
 			if selection == 'exit':
 				break
 			else:
-				pass
+				switch_menu(selection)
 		else:
 			display_message('Not a valid choice. Please try again.')
 
+
+def switch_menu(selection):
+	pass
 
 
 if __name__ == '__main__':
