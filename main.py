@@ -1,6 +1,7 @@
 from ui import display_options, display_message
 from input_management import get_input
 from validation import menu_selection_exists
+from database_management import *
 
 def main():
 	while True:
