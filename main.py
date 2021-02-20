@@ -1,5 +1,7 @@
 def main():
-	pass
+	selection = ''
+	while selection != 'exit':
+		pass
 
 
 if __name__ == '__main__':
