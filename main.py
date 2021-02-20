@@ -30,5 +30,21 @@ def switch_menu(selection):
 	  https://stackoverflow.com/questions/7857837/is-this-a-pythonic-method-of-executing-functions-as-a-python-switch-statement'''
 
 
+def create():
+	pass
+
+
+def read():
+	pass
+
+
+def update():
+	pass
+
+
+def delete():
+	pass
+
+
 if __name__ == '__main__':
 	main()
