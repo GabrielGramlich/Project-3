@@ -13,5 +13,3 @@ def get_bool(message,true,false):
 
 
 	return message
-
-
