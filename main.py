@@ -16,7 +16,18 @@ def main():
 
 
 def switch_menu(selection):
-	pass
+	'''Apparently python doesn't have a switch statement, which cool, whatever,
+	  but this provides a cool workaround for it. I don't know if it'll work until
+	  I test it, but if not, I'll change it to a basic if-elif-else thingy.'''
+	switch = {
+	'create':create,
+	'read':read,
+	'update':update,
+	'delete':delete
+	}
+	switch[selection]()
+	'''Oh! I didn't put in the citation. It's this:
+	  https://stackoverflow.com/questions/7857837/is-this-a-pythonic-method-of-executing-functions-as-a-python-switch-statement'''
 
 
 if __name__ == '__main__':
