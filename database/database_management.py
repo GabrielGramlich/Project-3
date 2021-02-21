@@ -105,4 +105,8 @@ class ArtDatabaseManager():
 		delete = f'DELETE FROM {table} WHERE {delete_column} = ?'
 		with sqlite3.connect(DATABASE) as connection:
 			connection.execute(delete, (delete_value, ))
+			rows_modified = updated.rowcount
 		connection.close()
+
+		if rows_modified == 0:
+			raise ArtDatabaseError(f'Nothing deleted. No entry for {delete_value} under {delete_column}.')
