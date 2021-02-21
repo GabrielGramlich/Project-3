@@ -14,8 +14,16 @@ def create_row():
 	pass
 
 
-def read_row():
-	pass
+def read_row(table, where_column, where_value):
+	results = []
+
+	connection = sqlite3.connect(DATABASE)
+	select = f'SELECT {columns} FROM {table} WHERE {where_column} = ?'
+	rows = connection.execute(select, (where_value,))
+	for row in rows:
+		results.append(row)
+	connection.close()
+	return results
 
 
 def read_rows(table):
