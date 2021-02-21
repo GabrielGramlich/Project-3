@@ -13,4 +13,4 @@ class Artwork:
 
 
 	def __str__(self):
-		return f'Artist: {self.artist}\nArtwork: {self.name}\nPrice: {self.price}\nAvailable: {self.available}'
+		return f'{self.db_id}:\nArtist: {self.artist}\nArtwork: {self.name}\nPrice: {self.price}\nAvailable: {self.available}'

@@ -13,7 +13,11 @@ def display_all_artists():
 
 
 def delete_artist():
-	pass
+	display_all_artists()
+	selection = ''
+	while not is_int(selection):
+		selection = get_string('Which artist would you like to delete? ')
+	delete_row('artist', 'artist_id', selection)
 
 
 def update_artist_name():
@@ -33,7 +37,11 @@ def display_all_artwok():
 
 
 def delete_artwork():
-	pass
+	display_all_artwork()
+	selection = ''
+	while not is_int(selection):
+		selection = get_string('Which artist would you like to delete? ')
+	delete_row('artwork', 'artwork_id', selection)
 
 
 def update_artist():
