@@ -1,11 +1,11 @@
 class Artwork:
 
-	def __init__(self, db_id, artist, name, price, available):
-		self.db_id = db_id
+	def __init__(self, artist, name, price, available, db_id=0):
 		self.artist = artist
 		self.name = name
 		self.price = price
 		self.available = available
+		self.db_id = db_id
 
 
 	def update_availability(self, availablile):
