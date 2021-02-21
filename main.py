@@ -21,17 +21,6 @@ def main():
 			display_message('Not a valid choice. Please try again.')
 
 
-def initialize_crud_menu():
-	crud_menu = Menu()
-	crud_menu.add_option('1', 'create', create)
-	crud_menu.add_option('2', 'read', read)
-	crud_menu.add_option('3', 'update', update)
-	crud_menu.add_option('4', 'delete', delete)
-	crud_menu.add_option('X', 'exit', exit)
-	
-	return crud_menu
-
-
 def initialize_artist_menu():
 	artist_menu = Menu()
 	artist_menu.add_option('1', 'create artist', create_artist)
