@@ -1,7 +1,14 @@
 from database.database_management import *
+from user.ui import get_string
+from database.artist import Artist
+from database.artwork import Artwork
 
 def create_artist():
-	pass
+	name = get_string('')
+	email = get_string('')
+	artist = Artist(name, email)
+
+	return artist
 
 
 def display_all_artists():
