@@ -2,6 +2,8 @@
 
 from multipledispatch import dispatch
 import sqlite3
+from artwork import Artwork
+from artist import Artist
 
 DATABASE = 'art.sqlite'
 
