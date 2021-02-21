@@ -1,5 +1,4 @@
-from ui import display_message
-from input_management import get_string
+from user.ui import display_message, get_string
 
 def menu_selection_exists(menu, selection):
 	return menu.is_valid(selection)

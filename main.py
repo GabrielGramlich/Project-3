@@ -1,8 +1,7 @@
-from ui import display_options, display_message
-from input_management import get_string
-from validation import menu_selection_exists
-from database_management import *
-from menu import Menu
+from user.ui import display_options, display_message, get_string
+from user.validation import menu_selection_exists
+from database.database_management import *
+from user.menu import Menu
 
 def main():
 	artdbmanager = ArtDatabaseManager

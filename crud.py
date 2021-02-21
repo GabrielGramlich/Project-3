@@ -1,4 +1,4 @@
-from database_management import *
+from database.database_management import *
 
 def crud(action):
 	action()

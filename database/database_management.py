@@ -2,9 +2,9 @@
 
 from multipledispatch import dispatch
 import sqlite3
-from artwork import Artwork
-from artist import Artist
-from ui import display_message
+from database.artwork import Artwork
+from database.artist import Artist
+from user.ui import display_message
 
 DATABASE = 'art.sqlite'
 

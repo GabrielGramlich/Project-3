@@ -1,6 +1,6 @@
 import unittest
 from unittest import TestCase
-from database_management import *
+from database.database_management import *
 
 import quiz
 
