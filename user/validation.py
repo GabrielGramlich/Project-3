@@ -13,3 +13,11 @@ def is_valid_bool(true,false,selection):
 		return True
 	else:
 		return False
+
+
+def is_int(test_int):
+	try:
+		good_int = int(test_int)
+		return True
+	except ValueError:
+		return False
