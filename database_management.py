@@ -22,7 +22,7 @@ def read_rows():
 	pass
 
 
-def update_row():
+def update_row(table, set_column, set_value, where_column, where_value):
 	with sqlite3.connect(DATABASE) as connection:
 		update = f'UPDATE {table} SET {set_column} = ? WHERE {where_column} = ?'
 		connection.execute(update, (set_value,where_value))
