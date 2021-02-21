@@ -7,7 +7,7 @@ def create_artist(manager):
 	name = get_string('What is the artist\'s name? ')
 	email = get_string('What is the artist\'s email? ')
 	artist = Artist(name, email)
-	manager.create_row('artists', 'name', 'email')
+	manager.create_row('artists', artist)
 
 	return artist
 

@@ -34,23 +34,28 @@ class ArtDatabaseManager():
 		connection.close()
 
 
-	@dispatch(str, str, str)
-	def create_row(self, table, column1, column2):
+	def create_row(self, table, item):
+		if table == 'artists':
+			create_artist(table,item)
+		elif table == 'artwork':
+			create_artwork(table,item)
+
+
+	def create_artist(self, table, artist):
 		try:
 			insert = f'INSERT INTO {table} (name, email_address) VALUES (?, ?)'
 			with sqlite3.connect(DATABASE) as connection:
-				connection.execute(insert, (column1, column2))
+				connection.execute(insert, (artist.name,artist.email))
 			connection.close()
 		except sqlite3.IntegrityError:
 			raise ArtDatabaseError('Artist already exists')
 
 
-	@dispatch(str, str, str, str, str)
-	def create_row(self, table, column1, column2, column3, column4):
+	def create_artwork(self, table, artwork):
 		try:
 			insert = f'INSERT INTO {table} (artist, name, price, available) VALUES (?, ?, ?, ?)'
 			with sqlite3.connect(DATABASE) as connection:
-				connection.execute(insert, (column1, column2, column3, column4))
+				connection.execute(insert, (artwork.artist,artwork.name,artwork.price,artwork.available))
 			connection.close()
 		except sqlite3.IntegrityError:
 			raise ArtDatabaseError('Artwork already exists')
