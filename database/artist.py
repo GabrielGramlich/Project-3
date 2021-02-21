@@ -1,2 +1,5 @@
 class Artist:
-	pass
+	
+	def __init__(self, name, email):
+		self.name = name
+		self.author = email
