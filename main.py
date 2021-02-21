@@ -12,7 +12,7 @@ def main():
 		display_options(main_menu)
 		selection = get_string('\nWhich option would you like? ').upper()
 
-		if menu_selection_exists(selection):
+		if menu_selection_exists(main_menu, selection):
 			action = main_menu.get_action(selection)
 			next_action = action()
 			if selection == 'X':
@@ -42,7 +42,7 @@ def get_action(menu):
 	display_options(menu)
 	selection = get_string('\nWhich option would you like? ').upper()
 
-	if menu_selection_exists(selection):
+	if menu_selection_exists(menu, selection):
 		action = menu.get_action(selection)
 		return action()
 	else:
