@@ -15,12 +15,12 @@ def main():
 
 	while True:
 		display_options(main_menu)
-
 		selection = get_string('\nWhich option would you like? ')
+
 		if menu_selection_exists(selection):
 			if selection == 'exit':
 				break
-			else:
+			elif :
 				switch_menu(selection)
 		else:
 			display_message('Not a valid choice. Please try again.')
