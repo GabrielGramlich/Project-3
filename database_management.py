@@ -45,5 +45,8 @@ def update_row(table, set_column, set_value, where_column, where_value):
 	connection.close()
 
 
-def delete_row():
-	pass
+def delete_row(table, delete_column, delete_value):
+	with sqlite3.connect(DATABASE) as connection:
+		delete = f'DELETE FROM {table} WHERE {delete_column} = ?'
+		connection.execute(delete, (delete_value, ))
+	connection.close()
