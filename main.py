@@ -15,7 +15,10 @@ def main():
 
 		if menu_selection_exists(main_menu, selection):
 			action = main_menu.get_action(selection)
+			print('Here')
 			next_action = action()
+			print(next_action)
+			print('Here')
 			if selection == 'X':
 				break
 			next_action()
@@ -28,6 +31,7 @@ def artist_action():
 	artist_menu = initialize_artist_menu()
 	while action == None:
 		action = get_action(artist_menu)
+
 	return action
 
 
@@ -36,6 +40,7 @@ def artwork_action():
 	artwork_menu = initialize_artwork_menu()
 	while action == None:
 		action = get_action(artwork_menu)
+
 	return action
 
 
@@ -45,7 +50,7 @@ def get_action(menu):
 
 	if menu_selection_exists(menu, selection):
 		action = menu.get_action(selection)
-		return action()
+		return action
 	else:
 		display_message('Not a valid choice. Please try again.')
 		return None

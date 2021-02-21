@@ -1,9 +1,5 @@
 from database.database_management import *
 
-def crud(action):
-	action()
-
-
 def create_artist():
 	pass
 
