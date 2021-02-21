@@ -34,7 +34,7 @@ class ArtDatabaseManager():
 		connection.close()
 
 
-	@dispatch(string, string, string)
+	@dispatch(str, str, str)
 	def create_row(table, column1, column2):
 		try:
 			insert = f'INSERT INTO {table} VALUES (?, ?)'
@@ -45,7 +45,7 @@ class ArtDatabaseManager():
 			raise ArtDatabaseError('Artist already exists')
 
 
-	@dispatch(string, string, string, string, string)
+	@dispatch(str, str, str, str, str)
 	def create_row(table, column1, column2, column3, column4):
 		try:
 			insert = f'INSERT INTO {table} VALUES (?, ?, ?, ?)'
@@ -56,7 +56,7 @@ class ArtDatabaseManager():
 			raise ArtDatabaseError('Artwork already exists')
 
 
-	@dispatch(string, string, string)
+	@dispatch(str, str, str)
 	def read_rows(table, where_column, where_value):
 		results = []
 
@@ -73,7 +73,7 @@ class ArtDatabaseManager():
 		return results
 
 
-	@dispatch(string)
+	@dispatch(str)
 	def read_rows(table):
 		results = []
 
