@@ -8,6 +8,11 @@ from ui import display_message
 
 DATABASE = 'art.sqlite'
 
+
+class ArtError(Exception):
+	pass
+
+
 def intialize_artist_table():
 	create_table = 'CREATE TABLE IF NOT EXISTS artists (artist_id INTEGER PRIMARY KEY, name TEXT UNIQUE, email_address TEXT UNIQUE)'
 	with sqlite3.connect(DATABASE) as connection:
@@ -29,8 +34,8 @@ def create_row(table, column1, column2):
 		with sqlite3.connect(DATABASE) as connection:
 			connection.execute(insert, (column1, column2))
 		connection.close()
-	except IntegrityError:
-		display_message('Item already exists')
+	except sqlite3.IntegrityError:
+		raise ArtError('Artist already exists')
 
 
 @dispatch(string, string, string, string, string)
@@ -40,8 +45,8 @@ def create_row(table, column1, column2, column3, column4):
 		with sqlite3.connect(DATABASE) as connection:
 			connection.execute(insert, (column1, column2, column3, column4))
 		connection.close()
-	except IntegrityError:
-		display_message('Item already exists')
+	except sqlite3.IntegrityError:
+		raise ArtError('Artwork already exists')
 
 
 @dispatch(string, string, string)
@@ -81,8 +86,12 @@ def read_rows(table):
 def update_row(table, set_column, set_value, where_column, where_value):
 	update = f'UPDATE {table} SET {set_column} = ? WHERE {where_column} = ?'
 	with sqlite3.connect(DATABASE) as connection:
-		connection.execute(update, (set_value,where_value))
+		updated = connection.execute(update, (set_value,where_value))
+		rows_modified = updated.rowcount
 	connection.close()
+
+	if rows_modified == 0:
+		raise ArtError(f'Nothing modified. No entry for {where_value} under {where_column}.')
 
 
 def delete_row(table, delete_column, delete_value):
