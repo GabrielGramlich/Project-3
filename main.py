@@ -65,7 +65,7 @@ def initialize_main_menu():
 def initialize_artist_menu():
 	artist_menu = Menu()
 	artist_menu.add_option('1', 'create artist', create_artist)
-	artist_menu.add_option('2', 'display artist', display_artist)
+	artist_menu.add_option('2', 'display all artists', display_artist)
 	artist_menu.add_option('3', 'delete artist', delete_artist)
 	artist_menu.add_option('4', 'update name', update_artist_name)
 	artist_menu.add_option('5', 'update email', update_email)
@@ -76,7 +76,7 @@ def initialize_artist_menu():
 def initialize_artwork_menu():
 	artwork_menu = Menu()
 	artwork_menu.add_option('1', 'create artwork', create_artwork)
-	artwork_menu.add_option('2', 'display artwork', display_artwok)
+	artwork_menu.add_option('2', 'display all artwork', display_artwok)
 	artwork_menu.add_option('3', 'delete artwork', delete_artwork)
 	artwork_menu.add_option('4', 'update artist', update_artist)
 	artwork_menu.add_option('5', 'update name', update_artwork_name)

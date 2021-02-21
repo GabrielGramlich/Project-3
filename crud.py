@@ -1,3 +1,7 @@
+def crud(action):
+	action()
+
+
 def create_artist():
 	pass
 
