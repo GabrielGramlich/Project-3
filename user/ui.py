@@ -5,14 +5,14 @@ def get_string(message):
 
 
 def get_bool(message,true,false):
-	selection = validate_bool(true,false,get_string(message).lower(),message)
+	selection = get_string(message)
+	while not is_valid_bool(true,false,selection):
+		display_message(f'Invalid selection. Please select {true} or {false}.')
+		selection = get_string(message)
 	if selection == true:
 		return True
 	else:
 		return False
-
-
-	return message
 
 
 def display_options(menu):

@@ -6,14 +6,10 @@ def menu_selection_exists(menu, selection):
 	pass
 
 
-def invalid_bool(true,false,selection,message):
-	while True:
-		if selection == true:
-			break
-		elif selection == false:
-			break
-		else:
-			display_message(f'Invalid selection. Please select {true} or {false}.')
-			selection = get_string(message)
-
-	return selection
+def is_valid_bool(true,false,selection):
+	if selection == true:
+		return True
+	elif selection == false:
+		return True
+	else:
+		return False
