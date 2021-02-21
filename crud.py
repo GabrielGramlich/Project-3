@@ -2,6 +2,7 @@ from database.database_management import *
 from user.ui import get_string, display_options
 from database.artist import Artist
 from database.artwork import Artwork
+from user.validation import is_int
 
 def create_artist(manager):
 	name = get_string('What is the artist\'s name? ')
@@ -13,11 +14,11 @@ def create_artist(manager):
 
 
 def display_all_artists(manager):
-	display_all(manager, 'artists')
+	return display_all(manager, 'artists')
 
 
 def delete_artist(manager):
-	display_all_artists()
+	display_all_artists(manager)
 	selection = ''
 	while not is_int(selection):
 		selection = get_string('Which artist would you like to delete? ')
@@ -25,7 +26,13 @@ def delete_artist(manager):
 
 
 def update_artist_name(manager):
-	pass
+	artists = display_all_artists(manager)
+	selection = ''
+	while not is_int(selection):
+		selection = get_string('Which artist would you like to update? ')
+	artist = artists[int(selection) - 1]	# Index of the artist selected
+	update_value = get_string(f'What is their new name? ')
+	manager.update_row('artists', 'name', update_value, 'artist_id', artist.db_id)
 
 
 def update_email(manager):
@@ -37,7 +44,7 @@ def create_artwork(manager):
 
 
 def display_all_artwok(manager):
-	display_all('artwork')
+	return display_all('artwork')
 
 
 def delete_artwork(manager):
@@ -68,3 +75,5 @@ def display_all(manager, table):
 	items = manager.read_rows(table)
 	for item in items:
 		display_options(item)
+
+	return items

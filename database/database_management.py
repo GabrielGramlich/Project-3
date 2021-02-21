@@ -36,9 +36,9 @@ class ArtDatabaseManager():
 
 	def create_row(self, table, item):
 		if table == 'artists':
-			create_artist(table,item)
+			self.create_artist(table,item)
 		elif table == 'artwork':
-			create_artwork(table,item)
+			self.create_artwork(table,item)
 
 
 	def create_artist(self, table, artist):
