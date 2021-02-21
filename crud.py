@@ -36,7 +36,7 @@ def create_artwork(manager):
 	pass
 
 
-def display_all_artwok(manager, manager):
+def display_all_artwok(manager):
 	display_all('artwork')
 
 
