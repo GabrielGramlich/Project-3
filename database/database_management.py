@@ -110,3 +110,15 @@ class ArtDatabaseManager():
 
 		if rows_modified == 0:
 			raise ArtDatabaseError(f'Nothing deleted. No entry for {delete_value} under {delete_column}.')
+
+
+	def clear_database():
+		delete = f'DELETE * FROM artists'
+		with sqlite3.connect(DATABASE) as connection:
+			connection.execute(delete)
+		connection.close()
+
+		delete = f'DELETE * FROM artwork'
+		with sqlite3.connect(DATABASE) as connection:
+			connection.execute(delete)
+		connection.close()
