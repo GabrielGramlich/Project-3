@@ -61,9 +61,9 @@ def read_rows(table):
 	rows = connection.execute(select)
 	for row in rows:
 		if table == artists:
-			item = Artist(row[0],row[1])
+			item = Artist(row[0],row[1],row[2])
 		elif table == artwork:
-			item = Artwork(row[0],row[1],row[2],row[3])
+			item = Artwork(row[0],row[1],row[2],row[3],row[4])
 		results.append(row)
 	connection.close()
 	return results
