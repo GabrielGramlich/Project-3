@@ -8,29 +8,31 @@ from artist import Artist
 DATABASE = 'art.sqlite'
 
 def intialize_artist_table():
+	create_table = 'CREATE TABLE IF NOT EXISTS artists (artist_id INTEGER PRIMARY KEY, name TEXT UNIQUE, email_address TEXT UNIQUE)'
 	with sqlite3.connect(DATABASE) as connection:
-		connection.execute('CREATE TABLE IF NOT EXISTS artists (artist_id INTEGER PRIMARY KEY, name TEXT UNIQUE, email_address TEXT UNIQUE)')
+		connection.execute(create_table)
 	connection.close()
 
 
 def intialize_artwork_table():
+	create_table = 'CREATE TABLE IF NOT EXISTS artwork (artwork_id INTEGER PRIMARY KEY, artist TEXT, name TEXT UNIQUE, price NUMERIC, available BOOLEAN, FOREIGN KEY(artist) REFERENCES artists(name))'
 	with sqlite3.connect(DATABASE) as connection:
-		connection.execute('CREATE TABLE IF NOT EXISTS artwork (artwork_id INTEGER PRIMARY KEY, artist TEXT, name TEXT UNIQUE, price NUMERIC, available BOOLEAN, FOREIGN KEY(artist) REFERENCES artists(name))')
+		connection.execute(create_table)
 	connection.close()
 
 
 @dispatch(string, string, string)
 def create_row(table, column1, column2):
+	insert = f'INSERT INTO {table} values (?, ?)'
 	with sqlite3.connect(DATABASE) as connection:
-		insert = f'INSERT INTO {table} values (?, ?)'
 		connection.execute(insert, (column1, column2))
 	connection.close()
 
 
 @dispatch(string, string, string, string, string)
 def create_row(table, column1, column2, column3, column4):
+	insert = f'INSERT INTO {table} values (?, ?, ?, ?)'
 	with sqlite3.connect(DATABASE) as connection:
-		insert = f'INSERT INTO {table} values (?, ?, ?, ?)'
 		connection.execute(insert, (column1, column2, column3, column4))
 	connection.close()
 
@@ -70,14 +72,15 @@ def read_rows(table):
 
 
 def update_row(table, set_column, set_value, where_column, where_value):
+	update = f'UPDATE {table} SET {set_column} = ? WHERE {where_column} = ?'
 	with sqlite3.connect(DATABASE) as connection:
-		update = f'UPDATE {table} SET {set_column} = ? WHERE {where_column} = ?'
 		connection.execute(update, (set_value,where_value))
 	connection.close()
 
 
 def delete_row(table, delete_column, delete_value):
+	delete = f'DELETE FROM {table} WHERE {delete_column} = ?'
 	with sqlite3.connect(DATABASE) as connection:
-		delete = f'DELETE FROM {table} WHERE {delete_column} = ?'
 		connection.execute(delete, (delete_value, ))
 	connection.close()
+	
