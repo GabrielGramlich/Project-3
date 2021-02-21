@@ -5,7 +5,9 @@ def intialize_artist_table():
 
 
 def intialize_artwork_table():
-	pass
+	with sqlite3.connect(DATABASE) as connection:
+		connection.execute('CREATE TABLE IF NOT EXISTS artwork (artist text, name text, price numeric, available boolean)')
+	connection.close()
 
 
 def create_row(table, column1, column2):
