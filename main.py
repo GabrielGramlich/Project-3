@@ -2,6 +2,7 @@ from ui import display_options, display_message
 from input_management import get_string
 from validation import menu_selection_exists
 from database_management import *
+from menu import Menu
 
 def main():
 	initialize_database()
