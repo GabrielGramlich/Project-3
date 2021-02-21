@@ -1,4 +1,7 @@
 class Artwork:
+
 	def __init__(self, artist, name, price, available):
+		self.artist = artist
 		self.name = name
-		self.email = email
+		self.price = price
+		self.available = available
