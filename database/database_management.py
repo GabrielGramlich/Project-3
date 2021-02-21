@@ -64,10 +64,10 @@ class ArtDatabaseManager():
 		select = f'SELECT {columns} FROM {table} WHERE UPPER({where_column}) = UPPER(?)'
 		rows = connection.execute(select, (where_value,))
 		for row in rows:
-			if table == artists:
-				item = Artist(row[0],row[1],row[2])
-			elif table == artwork:
-				item = Artwork(row[0],row[1],row[2],row[3],row[4])
+			if table == 'artists':
+				item = Artist(row['artist_id'],row['name'],row['email_address'])
+			elif table == 'artwork':
+				item = Artwork(row['artwork_id'],row['artist'],row['name'],row['price'],row['available'])
 			results.append(item)
 		connection.close()
 		return results
@@ -81,11 +81,11 @@ class ArtDatabaseManager():
 		select = f'SELECT * FROM {table}'
 		rows = connection.execute(select)
 		for row in rows:
-			if table == artists:
-				item = Artist(row[0],row[1],row[2])
-			elif table == artwork:
-				item = Artwork(row[0],row[1],row[2],row[3],row[4])
-			results.append(row)
+			if table == 'artists':
+				item = Artist(row['artist_id'],row['name'],row['email_address'])
+			elif table == 'artwork':
+				item = Artwork(row['artwork_id'],row['artist'],row['name'],row['price'],row['available'])
+			results.append(item)
 		connection.close()
 		return results
 
