@@ -5,3 +5,7 @@ class Artwork:
 		self.name = name
 		self.price = price
 		self.available = available
+
+
+	def update_availability(self, availablile):
+		self.available = availablile
