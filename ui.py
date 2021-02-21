@@ -6,8 +6,8 @@ def display_options():
 	pass
 
 
-def display_message():
-	pass
+def display_message(message):
+	print(message)
 
 
 def refresh(lines):
