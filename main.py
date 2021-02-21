@@ -5,9 +5,7 @@ from database_management import *
 from menu import Menu
 
 def main():
-	initialize_database()
-	initialize_artist_table()
-	intialize_artwork_table()
+	artdbmanager = ArtDatabaseManager
 
 	main_menu = initialize_main_menu()
 
@@ -29,7 +27,7 @@ def artist_action():
 	action = None
 	artist_menu = initialize_artist_menu()
 	while action == None:
-		action = get_maction(artist_menu)
+		action = get_action(artist_menu)
 	return action
 
 
