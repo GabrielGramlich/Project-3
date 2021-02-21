@@ -2,8 +2,8 @@ def create_options():
 	pass
 
 
-def display_options():
-	pass
+def display_options(menu):
+	print(str(menu))
 
 
 def display_message(message):

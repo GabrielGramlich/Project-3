@@ -14,7 +14,7 @@ def main():
 	artwork_menu = initialize_artwork_menu()
 
 	while True:
-		is_artist = get_bool(f'Would you like to the artist menu or artwork menu? ','artist','artwork')
+		display_options(main_menu)
 
 		selection = get_string('\nWhich option would you like? ')
 		if menu_selection_exists(selection):
