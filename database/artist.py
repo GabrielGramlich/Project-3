@@ -15,4 +15,4 @@ class Artist:
 
 
 	def __str__(self):
-		return f'Artist: {self.name}\nEmail: {self.email}'
+		return f'Artist #{self.db_id}\nArtist: {self.name}\nEmail: {self.email}'
