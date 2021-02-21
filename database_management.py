@@ -1,5 +1,7 @@
 import sqlite3
 
+DATABASE = 'art.sqlite'
+
 def intialize_artist_table():
 	with sqlite3.connect(DATABASE) as connection:
 		connection.execute('CREATE TABLE IF NOT EXISTS artists (name text, email_address text)')
