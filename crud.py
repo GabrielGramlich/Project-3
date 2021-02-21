@@ -1,3 +1,5 @@
+from database_management import *
+
 def crud(action):
 	action()
 
@@ -6,7 +8,10 @@ def create_artist():
 	pass
 
 
-def display_artist():
+def display_all_artists():
+	artists = database_management.read_rows('artists')
+	for artist in artists:
+		display_options(artist)
 	pass
 
 
@@ -26,7 +31,7 @@ def create_artwork():
 	pass
 
 
-def display_artwok():
+def display_all_artwok():
 	pass
 
 
