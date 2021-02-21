@@ -5,6 +5,11 @@ import quiz
 
 class TestCreatingRows(TestCase):
 
+	test_db = 'test_artwork.db'
+
+	def setUp(self):
+			
+
 	def test_something(self):
 		self.fail('Test not written')
 

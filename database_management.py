@@ -23,7 +23,10 @@ def read_rows():
 
 
 def update_row():
-	pass
+	with sqlite3.connect(DATABASE) as connection:
+		update = f'UPDATE {table} SET {set_column} = ? WHERE {where_column} = ?'
+		connection.execute(update, (set_value,where_value))
+	connection.close()
 
 
 def delete_row():

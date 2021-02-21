@@ -30,26 +30,38 @@ def switch_menu(selection):
 	'update':update,
 	'delete':delete
 	}
-	is_artist = get_bool(f'Would you like to {selection} an artist or artwork? ', 'artist','artwork')
+	is_artist = get_bool(f'Would you like to {selection} an artist or artwork? ','artist','artwork')
 	switch[selection](is_artist)
 	'''Oh! I didn't put in the citation. It's this:
 	  https://stackoverflow.com/questions/7857837/is-this-a-pythonic-method-of-executing-functions-as-a-python-switch-statement'''
 
 
 def create(is_artist):
-	pass
+	if is_artist:
+		pass
+	else:
+		pass
 
 
 def read(is_artist):
-	pass
+	if is_artist:
+		pass
+	else:
+		pass
 
 
 def update(is_artist):
-	pass
+	if is_artist:
+		pass
+	else:
+		pass
 
 
 def delete(is_artist):
-	pass
+	if is_artist:
+		pass
+	else:
+		pass
 
 
 if __name__ == '__main__':
