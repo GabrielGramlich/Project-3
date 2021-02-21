@@ -18,8 +18,9 @@ def main():
 		selection = get_string('\nWhich option would you like? ').upper()
 
 		if menu_selection_exists(selection):
-			selection()
-			if selection == 'x':
+			action = main_menu.get_action(selection)
+			action()
+			if selection == 'X':
 				break
 		else:
 			display_message('Not a valid choice. Please try again.')
