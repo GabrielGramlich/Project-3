@@ -28,6 +28,8 @@ def initialize_main_menu():
 	main_menu.add_option('2', 'artwork menu', artwork_menu)
 	main_menu.add_option('X', 'exit', exit)
 
+	return main_menu
+
 
 def initialize_artist_menu():
 	artist_menu = Menu()
@@ -36,7 +38,8 @@ def initialize_artist_menu():
 	artist_menu.add_option('3', 'delete artist', delete_artist)
 	artist_menu.add_option('4', 'update name', update_artist_name)
 	artist_menu.add_option('5', 'update email', update_email)
-	pass
+
+	return artist_menu
 
 
 def initialize_artwork_menu():
@@ -48,7 +51,8 @@ def initialize_artwork_menu():
 	artwork_menu.add_option('5', 'update name', update_artwork_name)
 	artwork_menu.add_option('6', 'update price', update_price)
 	artwork_menu.add_option('7', 'update availability', update_avilability)
-	pass
+
+	return artwork_menu
 
 
 def switch_menu(selection):
