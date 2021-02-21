@@ -1,5 +1,5 @@
 from database.database_management import *
-from user.ui import get_string
+from user.ui import get_string, display_options
 from database.artist import Artist
 from database.artwork import Artwork
 
