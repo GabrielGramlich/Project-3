@@ -1,7 +1,7 @@
 def get_string(message):
-	selection = input(message).lower()
+	selection = input(message)
 
-	return message
+	return selection
 
 
 def get_bool(message,true,false):
