@@ -10,8 +10,6 @@ def main():
 	intialize_artwork_table()
 
 	main_menu = initialize_main_menu()
-	artist_menu = initialize_artist_menu()
-	artwork_menu = initialize_artwork_menu()
 
 	while True:
 		display_options(main_menu)
@@ -19,25 +17,46 @@ def main():
 
 		if menu_selection_exists(selection):
 			action = main_menu.get_action(selection)
-			action()
+			next_action = action()
 			if selection == 'X':
 				break
+			next_action()
 		else:
 			display_message('Not a valid choice. Please try again.')
 
 
-def display_artist_menu():
-	pass
+def artist_action():
+	action = None
+	artist_menu = initialize_artist_menu()
+	while action == None:
+		action = get_maction(artist_menu)
+	return action
 
 
-def display_artist_artwork_menu():
-	pass
+def artwork_action():
+	action = None
+	artwork_menu = initialize_artwork_menu()
+	while action == None:
+		action = get_action(artwork_menu)
+	return action
+
+
+def get_action(menu):
+	display_options(menu)
+	selection = get_string('\nWhich option would you like? ').upper()
+
+	if menu_selection_exists(selection):
+		action = menu.get_action(selection)
+		return action()
+	else:
+		display_message('Not a valid choice. Please try again.')
+		return None
 
 
 def initialize_main_menu():
 	main_menu = Menu():
-	main_menu.add_option('1', 'artist menu', display_artist_menu)
-	main_menu.add_option('2', 'artwork menu', display_artwork_menu)
+	main_menu.add_option('1', 'artist menu', artist_action)
+	main_menu.add_option('2', 'artwork menu', artwork_action)
 	main_menu.add_option('X', 'exit', exit)
 
 	return main_menu
