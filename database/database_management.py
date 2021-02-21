@@ -42,7 +42,11 @@ def read_row(table, where_column, where_value):
 	select = f'SELECT {columns} FROM {table} WHERE {where_column} = ?'
 	rows = connection.execute(select, (where_value,))
 	for row in rows:
-		results.append(row)
+		if table == artists:
+			item = Artist(row[0],row[1])
+		elif table == artwork:
+			item = Artwork(row[0],row[1],row[2],row[3])
+		results.append(item)
 	connection.close()
 	return results
 
