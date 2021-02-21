@@ -61,7 +61,7 @@ class ArtDatabaseManager():
 		results = []
 
 		connection = sqlite3.connect(DATABASE)
-		select = f'SELECT {columns} FROM {table} WHERE {where_column} = ?'
+		select = f'SELECT {columns} FROM {table} WHERE UPPER({where_column}) = UPPER(?)'
 		rows = connection.execute(select, (where_value,))
 		for row in rows:
 			if table == artists:
@@ -91,7 +91,7 @@ class ArtDatabaseManager():
 
 
 	def update_row(table, set_column, set_value, where_column, where_value):
-		update = f'UPDATE {table} SET {set_column} = ? WHERE {where_column} = ?'
+		update = f'UPDATE {table} SET {set_column} = ? WHERE UPPER({where_column}) = UPPER(?)'
 		with sqlite3.connect(DATABASE) as connection:
 			updated = connection.execute(update, (set_value,where_value))
 			rows_modified = updated.rowcount
@@ -102,7 +102,7 @@ class ArtDatabaseManager():
 
 
 	def delete_row(table, delete_column, delete_value):
-		delete = f'DELETE FROM {table} WHERE {delete_column} = ?'
+		delete = f'DELETE FROM {table} WHERE UPPER({delete_column}) = UPPER(?)'
 		with sqlite3.connect(DATABASE) as connection:
 			connection.execute(delete, (delete_value, ))
 			rows_modified = updated.rowcount
