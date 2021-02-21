@@ -3,7 +3,7 @@ from user.ui import get_string
 from database.artist import Artist
 from database.artwork import Artwork
 
-def create_artist():
+def create_artist(manager):
 	name = get_string('What is the artist\'s name? ')
 	email = get_string('What is the artist\'s email? ')
 	artist = Artist(name, email)
@@ -12,11 +12,11 @@ def create_artist():
 	return artist
 
 
-def display_all_artists():
-	display_all('artists')
+def display_all_artists(manager):
+	display_all(manager, 'artists')
 
 
-def delete_artist():
+def delete_artist(manager):
 	display_all_artists()
 	selection = ''
 	while not is_int(selection):
@@ -24,23 +24,23 @@ def delete_artist():
 	delete_row('artist', 'artist_id', selection)
 
 
-def update_artist_name():
+def update_artist_name(manager):
 	pass
 
 
-def update_email():
+def update_email(manager):
 	pass
 
 
-def create_artwork():
+def create_artwork(manager):
 	pass
 
 
-def display_all_artwok():
+def display_all_artwok(manager, manager):
 	display_all('artwork')
 
 
-def delete_artwork():
+def delete_artwork(manager):
 	display_all_artwork()
 	selection = ''
 	while not is_int(selection):
@@ -48,23 +48,23 @@ def delete_artwork():
 	delete_row('artwork', 'artwork_id', selection)
 
 
-def update_artist():
+def update_artist(manager):
 	pass
 
 
-def update_artwork_name():
+def update_artwork_name(manager):
 	pass
 
 
-def update_price():
+def update_price(manager):
 	pass
 
 
-def update_avilability():
+def update_avilability(manager):
 	pass
 
 
-def display_all(table):
-	items = database_management.read_rows(table)
+def display_all(manager, table):
+	items = manager.read_rows(table)
 	for item in items:
 		display_options(item)

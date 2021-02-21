@@ -18,7 +18,7 @@ def main():
 			next_action = action()
 			if selection == 'X':
 				break
-			next_action()
+			next_action(artdbmanager)
 		else:
 			display_message('Not a valid choice. Please try again.')
 
