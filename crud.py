@@ -9,10 +9,7 @@ def create_artist():
 
 
 def display_all_artists():
-	artists = database_management.read_rows('artists')
-	for artist in artists:
-		display_options(artist)
-	pass
+	display_all('artists')
 
 
 def delete_artist():
@@ -32,7 +29,7 @@ def create_artwork():
 
 
 def display_all_artwok():
-	pass
+	display_all('artwork')
 
 
 def delete_artwork():
@@ -53,3 +50,9 @@ def update_price():
 
 def update_avilability():
 	pass
+
+
+def display_all(table):
+	items = database_management.read_rows(table)
+	for item in items:
+		display_options(item)
