@@ -22,27 +22,32 @@ def main():
 			display_message('Not a valid choice. Please try again.')
 
 
+def initialize_main_menu():
+	main_menu = Menu():
+	main_menu.add_option('1', 'artist menu', artist_menu)
+	main_menu.add_option('2', 'artwork menu', artwork_menu)
+	main_menu.add_option('X', 'exit', exit)
+
+
 def initialize_artist_menu():
 	artist_menu = Menu()
 	artist_menu.add_option('1', 'create artist', create_artist)
-	artist_menu.add_option('1', 'display artist', display_artist)
-	artist_menu.add_option('1', 'delete artist', delete_artist)
-	artist_menu.add_option('2', 'update name', update_artist)
-	artist_menu.add_option('3', 'update email', create_artist)
-	artist_menu.add_option('3', 'exit', exit)
+	artist_menu.add_option('2', 'display artist', display_artist)
+	artist_menu.add_option('3', 'delete artist', delete_artist)
+	artist_menu.add_option('4', 'update name', update_artist_name)
+	artist_menu.add_option('5', 'update email', update_email)
 	pass
 
 
 def initialize_artwork_menu():
 	artwork_menu = Menu()
 	artwork_menu.add_option('1', 'create artwork', create_artwork)
-	artwork_menu.add_option('1', 'display artwork', display_artwok)
-	artwork_menu.add_option('2', 'delete artwork', delete_artwork)
-	artwork_menu.add_option('1', 'update artist', create_artwork)
-	artwork_menu.add_option('1', 'update name', create_artwork)
-	artwork_menu.add_option('1', 'update price', create_artwork)
-	artwork_menu.add_option('1', 'update availability', create_artwork)
-	artwork_menu.add_option('3', 'exit', exit)
+	artwork_menu.add_option('2', 'display artwork', display_artwok)
+	artwork_menu.add_option('3', 'delete artwork', delete_artwork)
+	artwork_menu.add_option('4', 'update artist', update_artist)
+	artwork_menu.add_option('5', 'update name', update_artwork_name)
+	artwork_menu.add_option('6', 'update price', update_price)
+	artwork_menu.add_option('7', 'update availability', update_avilability)
 	pass
 
 
