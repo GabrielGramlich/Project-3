@@ -64,7 +64,15 @@ class TestReadingRows(TestCase):
 		self.clear_database()
 
 
-	def test_something(self):
+	def test_single_record_returned(self):
+		self.fail('Test not written')
+
+
+	def test_multiple_records_returned(self):
+		self.fail('Test not written')
+
+
+	def test_search_has_no_results_raises_error(self):
 		self.fail('Test not written')
 
 
