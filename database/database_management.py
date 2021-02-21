@@ -37,7 +37,7 @@ class ArtDatabaseManager():
 	@dispatch(str, str, str)
 	def create_row(self, table, column1, column2):
 		try:
-			insert = f'INSERT INTO {table} VALUES (name=?, email_address=?)'
+			insert = f'INSERT INTO {table} (name, email_address) VALUES (?, ?)'
 			with sqlite3.connect(DATABASE) as connection:
 				connection.execute(insert, (column1, column2))
 			connection.close()
@@ -48,7 +48,7 @@ class ArtDatabaseManager():
 	@dispatch(str, str, str, str, str)
 	def create_row(self, table, column1, column2, column3, column4):
 		try:
-			insert = f'INSERT INTO {table} VALUES (artist=?, name=?, price=?, available=?)'
+			insert = f'INSERT INTO {table} (artist, name, price, available) VALUES (?, ?, ?, ?)'
 			with sqlite3.connect(DATABASE) as connection:
 				connection.execute(insert, (column1, column2, column3, column4))
 			connection.close()
