@@ -35,7 +35,8 @@ def create_row(table, column1, column2, column3, column4):
 	connection.close()
 
 
-def read_row(table, where_column, where_value):
+@dispatch(string, string, string)
+def read_rows(table, where_column, where_value):
 	results = []
 
 	connection = sqlite3.connect(DATABASE)
@@ -51,6 +52,7 @@ def read_row(table, where_column, where_value):
 	return results
 
 
+@dispatch(string)
 def read_rows(table):
 	results = []
 
