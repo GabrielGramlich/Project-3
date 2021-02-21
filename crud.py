@@ -36,7 +36,13 @@ def update_artist_name(manager):
 
 
 def update_email(manager):
-	pass
+	artists = display_all_artists(manager)
+	selection = ''
+	while not is_int(selection):
+		selection = get_string('Which artist would you like to update? ')
+	artist = artists[int(selection) - 1]	# Index of the artist selected
+	update_value = get_string(f'What is their new email? ')
+	manager.update_row('artists', 'email', update_value, 'artist_id', artist.db_id)
 
 
 def create_artwork(manager):
