@@ -9,13 +9,13 @@ DATABASE = 'art.sqlite'
 
 def intialize_artist_table():
 	with sqlite3.connect(DATABASE) as connection:
-		connection.execute('CREATE TABLE IF NOT EXISTS artists (name text, email_address text)')
+		connection.execute('CREATE TABLE IF NOT EXISTS artists (artist_id INTEGER PRIMARY KEY, name TEXT UNIQUE, email_address TEXT UNIQUE)')
 	connection.close()
 
 
 def intialize_artwork_table():
 	with sqlite3.connect(DATABASE) as connection:
-		connection.execute('CREATE TABLE IF NOT EXISTS artwork (artist text, name text, price numeric, available boolean)')
+		connection.execute('CREATE TABLE IF NOT EXISTS artwork (artwork_id INTEGER PRIMARY KEY, artist TEXT, name TEXT UNIQUE, price NUMERIC, available BOOLEAN, FOREIGN KEY(artist) REFERENCES artists(name))')
 	connection.close()
 
 
@@ -44,9 +44,9 @@ def read_rows(table, where_column, where_value):
 	rows = connection.execute(select, (where_value,))
 	for row in rows:
 		if table == artists:
-			item = Artist(row[0],row[1])
+			item = Artist(row[0],row[1],row[2])
 		elif table == artwork:
-			item = Artwork(row[0],row[1],row[2],row[3])
+			item = Artwork(row[0],row[1],row[2],row[3],row[4])
 		results.append(item)
 	connection.close()
 	return results
