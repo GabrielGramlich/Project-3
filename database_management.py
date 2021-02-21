@@ -18,8 +18,16 @@ def read_row():
 	pass
 
 
-def read_rows():
-	pass
+def read_rows(table):
+	results = []
+
+	connection = sqlite3.connect(DATABASE)
+	select = f'SELECT * FROM {table}'
+	rows = connection.execute(select)
+	for row in rows:
+		results.append(row)
+	connection.close()
+	return results
 
 
 def update_row(table, set_column, set_value, where_column, where_value):
