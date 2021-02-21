@@ -116,5 +116,13 @@ class TestDeletingRows(TestCase):
 		self.clear_database()
 
 
-	def test_something(self):
+	def test_user_can_delete_row(self):
+		self.fail('Test not written')
+
+
+	def test_user_can_delete_multiple_rows(self):
+		self.fail('Test not written')
+
+
+	def test_row_doesnt_exist_raises_error(self):
 		self.fail('Test not written')
