@@ -8,8 +8,20 @@ class Artwork:
 		self.db_id = db_id
 
 
-	def update_availability(self, availablile):
-		self.available = availablile
+	def update_artist(self, new_artist):
+		self.artist = new_artist
+
+
+	def update_name(self, new_name):
+		self.name = new_name
+
+
+	def update_price(self, new_price):
+		self.price = new_price
+
+
+	def update_availability(self, new_availablility):
+		self.available = new_available
 
 
 	def __str__(self):
