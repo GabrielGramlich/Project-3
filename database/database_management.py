@@ -65,9 +65,9 @@ class ArtDatabaseManager():
 		rows = connection.execute(select, (where_value,))
 		for row in rows:
 			if table == 'artists':
-				item = Artist(row['name'],row['email_address'],row['artist_id'])
+				item = Artist(row[1],row[2],row[0])
 			elif table == 'artwork':
-				item = Artwork(row['artist'],row['name'],row['price'],row['available'],row['artwork_id'])
+				item = Artwork(row[1],row[2],row[3],row[4],row[0])
 			results.append(item)
 		connection.close()
 		return results
@@ -82,9 +82,9 @@ class ArtDatabaseManager():
 		rows = connection.execute(select)
 		for row in rows:
 			if table == 'artists':
-				item = Artist(row['name'],row['email_address'],row['artist_id'])
+				item = Artist(row[1],row[2],row[0])
 			elif table == 'artwork':
-				item = Artwork(row['artist'],row['name'],row['price'],row['available'],row['artwork_id'])
+				item = Artwork(row[1],row[2],row[3],row[4],row[0])
 			results.append(item)
 		connection.close()
 		return results
