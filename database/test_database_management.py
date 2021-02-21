@@ -42,6 +42,14 @@ class TestCreatingRows(TestCase):
 		self.fail('Test not written')
 
 
+	def test_input_duplicate_artist_raises_error(self):
+		self.fail('Test not written')
+
+
+	def test_input_duplicate_artwork_raises_error(self):
+		self.fail('Test not written')
+
+
 class TestReadingRows(TestCase):
 
 	test_db = 'test_artwork.db'
