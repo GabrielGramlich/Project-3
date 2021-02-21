@@ -25,7 +25,7 @@ def intialize_artwork_table():
 @dispatch(string, string, string)
 def create_row(table, column1, column2):
 	try:
-		insert = f'INSERT INTO {table} values (?, ?)'
+		insert = f'INSERT INTO {table} VALUES (?, ?)'
 		with sqlite3.connect(DATABASE) as connection:
 			connection.execute(insert, (column1, column2))
 		connection.close()
@@ -36,7 +36,7 @@ def create_row(table, column1, column2):
 @dispatch(string, string, string, string, string)
 def create_row(table, column1, column2, column3, column4):
 	try:
-		insert = f'INSERT INTO {table} values (?, ?, ?, ?)'
+		insert = f'INSERT INTO {table} VALUES (?, ?, ?, ?)'
 		with sqlite3.connect(DATABASE) as connection:
 			connection.execute(insert, (column1, column2, column3, column4))
 		connection.close()
