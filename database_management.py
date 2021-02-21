@@ -1,17 +1,18 @@
-def initialize_database():
-	pass
-
-
 def intialize_artist_table():
-	pass
+	with sqlite3.connect(DATABASE) as connection:
+		connection.execute('CREATE TABLE IF NOT EXISTS artists (name text, email_address text)')
+	connection.close()
 
 
 def intialize_artwork_table():
 	pass
 
 
-def create_row():
-	pass
+def create_row(table, column1, column2):
+	with sqlite3.connect(DATABASE) as connection:
+		insert = f'INSERT INTO {table} values (?, ?)'
+		connection.execute(insert, (column1, column2))
+	connection.close()
 
 
 def read_row(table, where_column, where_value):
