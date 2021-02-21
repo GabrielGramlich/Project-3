@@ -11,14 +11,11 @@ def main():
 
 	while True:
 		display_options(main_menu)
-		selection = get_string('\nWhich option would you like? ').upper()
+		selection = get_string('Which option would you like? ').upper()
 
 		if menu_selection_exists(main_menu, selection):
 			action = main_menu.get_action(selection)
-			print('Here')
 			next_action = action()
-			print(next_action)
-			print('Here')
 			if selection == 'X':
 				break
 			next_action()
@@ -46,7 +43,7 @@ def artwork_action():
 
 def get_action(menu):
 	display_options(menu)
-	selection = get_string('\nWhich option would you like? ').upper()
+	selection = get_string('Which option would you like? ').upper()
 
 	if menu_selection_exists(menu, selection):
 		action = menu.get_action(selection)

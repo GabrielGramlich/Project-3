@@ -1,6 +1,6 @@
 class Artist:
 	
-	def __init__(self, db_id, name, email):
+	def __init__(self, db_id=0, name, email):
 		self.db_id = db_id
 		self.name = name
 		self.email = email

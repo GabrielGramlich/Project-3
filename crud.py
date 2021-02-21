@@ -4,9 +4,10 @@ from database.artist import Artist
 from database.artwork import Artwork
 
 def create_artist():
-	name = get_string('')
-	email = get_string('')
+	name = get_string('What is the artist\'s name? ')
+	email = get_string('What is the artist\'s email? ')
 	artist = Artist(name, email)
+	create_row('artist', 'name', 'email')
 
 	return artist
 
