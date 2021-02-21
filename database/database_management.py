@@ -16,18 +16,18 @@ class ArtDatabaseError(Exception):
 class ArtDatabaseManager():
 
 	def __init__(self):
-		initialize_artist_table()
-		initialize_artwork_table()
+		self.initialize_artist_table()
+		self.initialize_artwork_table()
 
 
-	def initialize_artist_table():
+	def initialize_artist_table(self):
 		create_table = 'CREATE TABLE IF NOT EXISTS artists (artist_id INTEGER PRIMARY KEY, name TEXT UNIQUE, email_address TEXT UNIQUE)'
 		with sqlite3.connect(DATABASE) as connection:
 			connection.execute(create_table)
 		connection.close()
 
 
-	def initialize_artwork_table():
+	def initialize_artwork_table(self):
 		create_table = 'CREATE TABLE IF NOT EXISTS artwork (artwork_id INTEGER PRIMARY KEY, artist TEXT, name TEXT UNIQUE, price NUMERIC, available BOOLEAN, FOREIGN KEY(artist) REFERENCES artists(name))'
 		with sqlite3.connect(DATABASE) as connection:
 			connection.execute(create_table)
@@ -35,7 +35,7 @@ class ArtDatabaseManager():
 
 
 	@dispatch(str, str, str)
-	def create_row(table, column1, column2):
+	def create_row(self, table, column1, column2):
 		try:
 			insert = f'INSERT INTO {table} VALUES (?, ?)'
 			with sqlite3.connect(DATABASE) as connection:
@@ -46,7 +46,7 @@ class ArtDatabaseManager():
 
 
 	@dispatch(str, str, str, str, str)
-	def create_row(table, column1, column2, column3, column4):
+	def create_row(self, table, column1, column2, column3, column4):
 		try:
 			insert = f'INSERT INTO {table} VALUES (?, ?, ?, ?)'
 			with sqlite3.connect(DATABASE) as connection:
@@ -57,7 +57,7 @@ class ArtDatabaseManager():
 
 
 	@dispatch(str, str, str)
-	def read_rows(table, where_column, where_value):
+	def read_rows(self, table, where_column, where_value):
 		results = []
 
 		connection = sqlite3.connect(DATABASE)
@@ -74,7 +74,7 @@ class ArtDatabaseManager():
 
 
 	@dispatch(str)
-	def read_rows(table):
+	def read_rows(self, table):
 		results = []
 
 		connection = sqlite3.connect(DATABASE)
@@ -90,7 +90,7 @@ class ArtDatabaseManager():
 		return results
 
 
-	def update_row(table, set_column, set_value, where_column, where_value):
+	def update_row(self, table, set_column, set_value, where_column, where_value):
 		update = f'UPDATE {table} SET {set_column} = ? WHERE UPPER({where_column}) = UPPER(?)'
 		with sqlite3.connect(DATABASE) as connection:
 			updated = connection.execute(update, (set_value,where_value))
@@ -101,7 +101,7 @@ class ArtDatabaseManager():
 			raise ArtDatabaseError(f'Nothing modified. No entry for {where_value} under {where_column}.')
 
 
-	def delete_row(table, delete_column, delete_value):
+	def delete_row(self, table, delete_column, delete_value):
 		delete = f'DELETE FROM {table} WHERE UPPER({delete_column}) = UPPER(?)'
 		with sqlite3.connect(DATABASE) as connection:
 			connection.execute(delete, (delete_value, ))
@@ -112,7 +112,7 @@ class ArtDatabaseManager():
 			raise ArtDatabaseError(f'Nothing deleted. No entry for {delete_value} under {delete_column}.')
 
 
-	def clear_database():
+	def clear_database(self):
 		delete = f'DELETE * FROM artists'
 		with sqlite3.connect(DATABASE) as connection:
 			connection.execute(delete)

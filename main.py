@@ -5,7 +5,7 @@ from user.menu import Menu
 from crud import *
 
 def main():
-	artdbmanager = ArtDatabaseManager
+	artdbmanager = ArtDatabaseManager()
 
 	main_menu = initialize_main_menu()
 
