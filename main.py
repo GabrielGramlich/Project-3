@@ -10,7 +10,8 @@ def main():
 	intialize_artwork_table()
 
 	while True:
-		display_options()
+		is_artist = get_bool(f'Would you like to the artist menu or artwork menu? ','artist','artwork')
+
 		selection = get_string('\nWhich option would you like? ')
 		if menu_selection_exists(selection):
 			if selection == 'exit':
@@ -28,6 +29,7 @@ def initialize_artist_menu():
 	artist_menu.add_option('1', 'delete artist', delete_artist)
 	artist_menu.add_option('2', 'update name', update_artist)
 	artist_menu.add_option('3', 'update email', create_artist)
+	artist_menu.add_option('3', 'exit', exit)
 	pass
 
 
@@ -40,6 +42,7 @@ def initialize_artwork_menu():
 	artwork_menu.add_option('1', 'update name', create_artwork)
 	artwork_menu.add_option('1', 'update price', create_artwork)
 	artwork_menu.add_option('1', 'update availability', create_artwork)
+	artwork_menu.add_option('3', 'exit', exit)
 	pass
 
 
@@ -53,7 +56,6 @@ def switch_menu(selection):
 	'update':update,
 	'delete':delete
 	}
-	is_artist = get_bool(f'Would you like to the artist menu or artwork menu? ','artist','artwork')
 	switch[selection](is_artist)
 	'''Oh! I didn't put in the citation. It's this:
 	  https://stackoverflow.com/questions/7857837/is-this-a-pythonic-method-of-executing-functions-as-a-python-switch-statement'''
