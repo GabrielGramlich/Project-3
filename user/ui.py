@@ -1,7 +1,3 @@
-def create_options():
-	pass
-
-
 def display_options(menu):
 	print(str(menu))
 
