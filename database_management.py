@@ -1,3 +1,6 @@
+'''Using https://pypi.org/project/multipledispatch/ to overload the row creation'''
+
+from multipledispatch import dispatch
 import sqlite3
 
 DATABASE = 'art.sqlite'
@@ -14,10 +17,19 @@ def intialize_artwork_table():
 	connection.close()
 
 
+@dispatch(string, string, string)
 def create_row(table, column1, column2):
 	with sqlite3.connect(DATABASE) as connection:
 		insert = f'INSERT INTO {table} values (?, ?)'
 		connection.execute(insert, (column1, column2))
+	connection.close()
+
+
+@dispatch(string, string, string, string, string)
+def create_row(table, column1, column2, column3, column4):
+	with sqlite3.connect(DATABASE) as connection:
+		insert = f'INSERT INTO {table} values (?, ?, ?, ?)'
+		connection.execute(insert, (column1, column2, column3, column4))
 	connection.close()
 
 
