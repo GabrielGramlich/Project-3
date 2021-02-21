@@ -18,7 +18,27 @@ class TestCreatingRows(TestCase):
 		self.clear_database()
 
 
-	def test_something(self):
+	def test_user_can_input_artist(self):
+		self.fail('Test not written')
+
+
+	def test_user_can_input_artwork(self):
+		self.fail('Test not written')
+
+
+	def test_user_cannot_input_artwork_artist_doesnt_exist(self):
+		self.fail('Test not written')
+
+
+	def test_user_cannot_input_artist_duplicate_name(self):
+		self.fail('Test not written')
+
+
+	def test_user_cannot_input_artist_duplicate_email(self):
+		self.fail('Test not written')
+
+
+	def test_user_cannot_input_artwork_duplicate_name(self):
 		self.fail('Test not written')
 
 
