@@ -18,18 +18,25 @@ def main():
 		selection = get_string('\nWhich option would you like? ')
 
 		if menu_selection_exists(selection):
+			selection()
 			if selection == 'exit':
 				break
-			elif :
-				switch_menu(selection)
 		else:
 			display_message('Not a valid choice. Please try again.')
 
 
+def display_artist_menu():
+	pass
+
+
+def display_artist_artwork_menu():
+	pass
+
+
 def initialize_main_menu():
 	main_menu = Menu():
-	main_menu.add_option('1', 'artist menu', artist_menu)
-	main_menu.add_option('2', 'artwork menu', artwork_menu)
+	main_menu.add_option('1', 'artist menu', display_artist_menu)
+	main_menu.add_option('2', 'artwork menu', display_artwork_menu)
 	main_menu.add_option('X', 'exit', exit)
 
 	return main_menu
@@ -59,47 +66,52 @@ def initialize_artwork_menu():
 	return artwork_menu
 
 
-def switch_menu(selection):
-	'''Apparently python doesn't have a switch statement, which cool, whatever,
-	  but this provides a cool workaround for it. I don't know if it'll work until
-	  I test it, but if not, I'll change it to a basic if-elif-else thingy.'''
-	switch = {
-	'create':create,
-	'read':read,
-	'update':update,
-	'delete':delete
-	}
-	switch[selection](is_artist)
-	'''Oh! I didn't put in the citation. It's this:
-	  https://stackoverflow.com/questions/7857837/is-this-a-pythonic-method-of-executing-functions-as-a-python-switch-statement'''
+def create_artist():
+	pass
 
 
-def create(is_artist):
-	if is_artist:
-		pass
-	else:
-		pass
+def display_artist():
+	pass
 
 
-def read(is_artist):
-	if is_artist:
-		pass
-	else:
-		pass
+def delete_artist():
+	pass
 
 
-def update(is_artist):
-	if is_artist:
-		pass
-	else:
-		pass
+def update_artist_name():
+	pass
 
 
-def delete(is_artist):
-	if is_artist:
-		pass
-	else:
-		pass
+def update_email():
+	pass
+
+
+def create_artwork():
+	pass
+
+
+def display_artwok():
+	pass
+
+
+def delete_artwork():
+	pass
+
+
+def update_artist():
+	pass
+
+
+def update_artwork_name():
+	pass
+
+
+def update_price():
+	pass
+
+
+def update_avilability():
+	pass
 
 
 if __name__ == '__main__':
