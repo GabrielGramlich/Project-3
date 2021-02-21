@@ -29,14 +29,28 @@ def initialize_crud_menu():
 	crud_menu.add_option('4', 'delete', delete)
 	crud_menu.add_option('X', 'exit', exit)
 	
-	return menu
+	return crud_menu
 
 
 def initialize_artist_menu():
+	artist_menu = Menu()
+	artist_menu.add_option('1', 'create artist', create_artist)
+	artist_menu.add_option('1', 'display artist', display_artist)
+	artist_menu.add_option('1', 'delete artist', delete_artist)
+	artist_menu.add_option('2', 'update name', update_artist)
+	artist_menu.add_option('3', 'update email', create_artist)
 	pass
 
 
 def initialize_artwork_menu():
+	artwork_menu = Menu()
+	artwork_menu.add_option('1', 'create artwork', create_artwork)
+	artwork_menu.add_option('1', 'display artwork', display_artwok)
+	artwork_menu.add_option('2', 'delete artwork', delete_artwork)
+	artwork_menu.add_option('1', 'update artist', create_artwork)
+	artwork_menu.add_option('1', 'update name', create_artwork)
+	artwork_menu.add_option('1', 'update price', create_artwork)
+	artwork_menu.add_option('1', 'update availability', create_artwork)
 	pass
 
 
@@ -50,7 +64,7 @@ def switch_menu(selection):
 	'update':update,
 	'delete':delete
 	}
-	is_artist = get_bool(f'Would you like to {selection} an artist or artwork? ','artist','artwork')
+	is_artist = get_bool(f'Would you like to the artist menu or artwork menu? ','artist','artwork')
 	switch[selection](is_artist)
 	'''Oh! I didn't put in the citation. It's this:
 	  https://stackoverflow.com/questions/7857837/is-this-a-pythonic-method-of-executing-functions-as-a-python-switch-statement'''
