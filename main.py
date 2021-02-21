@@ -20,6 +20,18 @@ def main():
 			display_message('Not a valid choice. Please try again.')
 
 
+def initialize_crud_menu():
+	pass
+
+
+def initialize_artist_menu():
+	pass
+
+
+def initialize_artwork_menu():
+	pass
+
+
 def switch_menu(selection):
 	'''Apparently python doesn't have a switch statement, which cool, whatever,
 	  but this provides a cool workaround for it. I don't know if it'll work until
