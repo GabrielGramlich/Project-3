@@ -9,6 +9,10 @@ def main():
 	initialize_artist_table()
 	intialize_artwork_table()
 
+	main_menu = initialize_main_menu()
+	artist_menu = initialize_artist_menu()
+	artwork_menu = initialize_artwork_menu()
+
 	while True:
 		is_artist = get_bool(f'Would you like to the artist menu or artwork menu? ','artist','artwork')
 
