@@ -4,6 +4,7 @@ from multipledispatch import dispatch
 import sqlite3
 from artwork import Artwork
 from artist import Artist
+from ui import display_message
 
 DATABASE = 'art.sqlite'
 
@@ -23,18 +24,24 @@ def intialize_artwork_table():
 
 @dispatch(string, string, string)
 def create_row(table, column1, column2):
-	insert = f'INSERT INTO {table} values (?, ?)'
-	with sqlite3.connect(DATABASE) as connection:
-		connection.execute(insert, (column1, column2))
-	connection.close()
+	try:
+		insert = f'INSERT INTO {table} values (?, ?)'
+		with sqlite3.connect(DATABASE) as connection:
+			connection.execute(insert, (column1, column2))
+		connection.close()
+	except IntegrityError:
+		display_message('Item already exists')
 
 
 @dispatch(string, string, string, string, string)
 def create_row(table, column1, column2, column3, column4):
-	insert = f'INSERT INTO {table} values (?, ?, ?, ?)'
-	with sqlite3.connect(DATABASE) as connection:
-		connection.execute(insert, (column1, column2, column3, column4))
-	connection.close()
+	try:
+		insert = f'INSERT INTO {table} values (?, ?, ?, ?)'
+		with sqlite3.connect(DATABASE) as connection:
+			connection.execute(insert, (column1, column2, column3, column4))
+		connection.close()
+	except IntegrityError:
+		display_message('Item already exists')
 
 
 @dispatch(string, string, string)
@@ -83,4 +90,3 @@ def delete_row(table, delete_column, delete_value):
 	with sqlite3.connect(DATABASE) as connection:
 		connection.execute(delete, (delete_value, ))
 	connection.close()
-	
