@@ -54,7 +54,7 @@ def get_action(menu):
 
 
 def initialize_main_menu():
-	main_menu = Menu():
+	main_menu = Menu()
 	main_menu.add_option('1', 'artist menu', artist_action)
 	main_menu.add_option('2', 'artwork menu', artwork_action)
 	main_menu.add_option('X', 'exit', exit)
